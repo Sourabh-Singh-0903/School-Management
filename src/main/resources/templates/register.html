@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <section>
+        <div class="container p-3">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card">
+                        <div class="card-header text-center fs-4">Register Page</div>
+
+                        <th:block th:if="${session.msg}">
+                            <p class="text-center fs-4 text-success">[[${session.msg}]]</p>
+                            <th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+                        </th:block>
+
+
+                        <div class="card-body">
+                            <form action="createUser" method="post" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <label>Enter Full Name</label> <input type="text" name="fullName"
+                                        class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label>Enter Email</label> <input type="text" name="email" class="form-control">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label>Enter Address</label> <input type="text" name="address" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label>Enter Qualification</label> <input type="text" name="qualification"
+                                        class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label>Enter Password</label> <input type="text" name="password"
+                                        class="form-control">
+                                </div>
+                                <select class="form-select mb-3" aria-label="Default select example"
+                                    name="studentTeacher">
+                                    <option selected>Select student or teacher</option>
+                                    <option value="teacher">Teacher</option>
+                                    <option value="student">Student</option>
+
+                                </select>
+
+                                <div class="mb-3">
+                                    <label>Choose Image</label> <input type="file" name="image" class="form-control">
+                                </div>
+                                <button class="btn btn-primary col-md-12">Register</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+</body>
+
+</html>
